@@ -1,5 +1,13 @@
 # Aurelle
+                   
+Live : [https://kimi-k3-ecommerce-storefront.vercel.app/](https://kimi-k3-ecommerce-storefront.vercel.app/)
 
+           
+
+
+![live](screenshots/1.png)
+            
+         
 A small, considered ecommerce storefront for handcrafted home goods — ceramics, lighting, textiles, and other quiet objects. Built as a fully server-rendered **Next.js 16** app with a complete SEO layer, a local-first shopping bag, and editorial content woven into the catalog.
 
 ## Tech stack
