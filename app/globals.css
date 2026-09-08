@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 25% 95%;
+    --foreground: 60 6% 8%;
+    --card: 48 33% 98%;
+    --card-foreground: 60 6% 8%;
+    --popover: 48 33% 98%;
+    --popover-foreground: 60 6% 8%;
+    --primary: 210 70% 18%;
+    --primary-foreground: 45 30% 96%;
+    --secondary: 42 14% 90%;
+    --secondary-foreground: 60 6% 8%;
+    --muted: 42 14% 90%;
+    --muted-foreground: 50 5% 40%;
+    --accent: 210 70% 18%;
+    --accent-foreground: 45 30% 96%;
+    --destructive: 8 62% 42%;
+    --destructive-foreground: 45 30% 96%;
+    --border: 40 12% 83%;
+    --input: 40 12% 83%;
+    --ring: 210 70% 18%;
+    --radius: 0;
+    --sidebar-background: 45 25% 95%;
+    --sidebar-foreground: 60 6% 8%;
+    --sidebar-primary: 210 70% 18%;
+    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-accent: 42 14% 90%;
+    --sidebar-accent-foreground: 60 6% 8%;
+    --sidebar-border: 40 12% 83%;
+    --sidebar-ring: 210 70% 18%;
+  }
+
+  .dark {
+    --background: 60 4% 6%;
+    --foreground: 48 16% 92%;
+    --card: 60 4% 9%;
+    --card-foreground: 48 16% 92%;
+    --popover: 60 4% 9%;
+    --popover-foreground: 48 16% 92%;
+    --primary: 210 30% 82%;
+    --primary-foreground: 210 40% 12%;
+    --secondary: 55 5% 15%;
+    --secondary-foreground: 48 16% 92%;
+    --muted: 55 5% 15%;
+    --muted-foreground: 48 6% 60%;
+    --accent: 210 30% 82%;
+    --accent-foreground: 210 40% 12%;
+    --destructive: 8 52% 52%;
+    --destructive-foreground: 48 16% 92%;
+    --border: 55 5% 18%;
+    --input: 55 5% 20%;
+    --ring: 210 30% 82%;
+    --sidebar-background: 60 4% 6%;
+    --sidebar-foreground: 48 16% 92%;
+    --sidebar-primary: 210 30% 82%;
+    --sidebar-primary-foreground: 210 40% 12%;
+    --sidebar-accent: 55 5% 15%;
+    --sidebar-accent-foreground: 48 16% 92%;
+    --sidebar-border: 55 5% 18%;
+    --sidebar-ring: 210 30% 82%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter), -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+  .font-mono2 {
+    font-family: var(--font-plex), ui-monospace, monospace;
+  }
+  .hairline-grid {
+    @apply grid gap-px bg-border border border-border;
+  }
+  .hairline-cell {
+    @apply bg-background;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10;
+  }
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute left-0 bottom-0 h-px w-full bg-current;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .btn-outline-invert {
+    @apply inline-flex items-center justify-center gap-2 border border-foreground bg-transparent px-6 py-3 font-mono2 text-xs uppercase tracking-[0.18em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-foreground;
+  }
+  .btn-solid-invert {
+    @apply inline-flex items-center justify-center gap-2 border border-foreground bg-foreground px-6 py-3 font-mono2 text-xs uppercase tracking-[0.18em] text-background transition-colors duration-300 hover:bg-transparent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .input-plain {
+    @apply w-full border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none;
+  }
+  .label-mono {
+    @apply font-mono2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+  .prose-body p {
+    @apply mb-5 leading-[1.85] text-foreground/85;
+  }
+}
+
+/* Drop cap for journal articles */
+.dropcap::first-letter {
+  font-family: var(--font-fraunces), Georgia, serif;
+  float: left;
+  font-size: 3.3em;
+  font-weight: 300;
+  line-height: 0.82;
+  padding: 0.05em 0.14em 0 0;
+}
